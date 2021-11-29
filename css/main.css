@@ -1,0 +1,540 @@
+/*
+Site: Partner's Corners 
+Description: Class File
+Author: Pablo Ortiz 
+Version: 1.0
+*/
+
+/*--------------------------------------------------------------
+Accessibility
+--------------------------------------------------------------*/
+
+/* Text meant only for screen readers */
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+}
+
+.screen-reader-text:hover,
+.screen-reader-text:active,
+.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	color: #21759b;
+	display: block;
+	font-size: 14px;
+	font-weight: bold;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000; /* Above WP toolbar */
+}
+
+/* ___________________________________________
+
+       CSS Guide
+___________________________________________ */
+
+/* 01. General Styles
+       - Reset
+       - Global
+         - General
+         - Floats
+         - Brand Colors
+         - Font Awesome                       
+   02. CSS Grid
+   03. Site Header
+       - Header
+       - Nav
+   04. Hero
+       - Image
+       - Title
+   05. Floats                       
+/* _____________________________________
+
+/* _____________________________________
+
+   01. General Styles
+   _____________________________________ */
+
+/* -------------
+  Reset
+-------------*/
+
+   body {
+      margin: 0;
+      padding: 0;
+      color: #626262;
+      font-family: 'Open Sans Condensed', sans-serif;
+      font-weight: 300;
+      font-size: 18px;
+   }
+
+   h1, h2, h3, h4, p {
+      margin: 0;
+      padding: 0;
+   }
+
+   h2 {
+      font-size: 3em;
+      font-weight: 700;
+   }
+
+   h3 {
+      font-size: 3em;
+      font-weight: 300;
+   }
+
+   p {
+      font-weight: 300;
+      font-size: 1.5em;
+   }
+
+/* -------------
+  Global
+-------------*/
+
+   /*------------ General ------------*/
+
+   .hidden {
+      display: none;
+   }
+
+   .margin-tb {
+      margin: 1em 0em 1em;
+   }
+
+   .margin-left {
+      margin-left: 1em;
+   
+   }
+
+   .margin-bottom {
+      margin-bottom: 2em;
+   }
+
+   /*------------ End General ------------*/
+
+   /*------------ Floats ------------*/
+
+   .f-left {
+      float: left;
+   }
+
+   .f-right {
+      float: right;
+   }
+
+   .float-flex {
+      display: flex;
+  }
+  
+  .float-nets a {
+      display: block;
+      width: 40px;
+      margin: 0 5px;
+  }
+
+   /*------------ End Floats ------------*/
+
+   /*------------ Brand Colours ------------*/
+
+   /*------------ End Brand Colours ------------*/
+   
+   /*------------ Font Awesome ------------*/
+
+   /*------------ End Font Awesome ------------*/
+
+/* _____________________________________
+
+   02. CSS Grid
+   _____________________________________ */
+
+   @supports (grid-area: auto) {
+
+      .site {
+         max-width: none;
+      }
+
+      /*------------ Grid Items ------------*/
+
+      .head, .main > *, .foot {
+         display: grid;
+			grid-template-columns: 1fr repeat(2, minmax(auto, 30em)) 1fr;
+      }
+      
+      .one-item {
+         display: grid;
+         grid-column: 2 / span 2;
+         grid-template-columns: 1fr;
+      }
+
+      .two-items {
+         display: grid;
+         grid-column: 2 / span 2;
+         grid-template-columns: repeat(2, 1fr);
+         justify-content: space-evenly;
+         row-gap: 2em;
+         column-gap: 2em;
+      }
+
+      .three-items {
+         display: grid;
+         grid-column: 2 / span 2;
+         grid-template-columns: repeat(3, 1fr);
+         justify-content: space-evenly;
+         row-gap: 2em;
+         column-gap: 2em;
+      }
+
+      .contact-override {
+         display: grid;
+         grid-template-columns: 1fr repeat(2, minmax(auto, 30em)) 1fr;
+         grid-column: 1 / span 4;
+         background-color: #f4f4f4;
+         border-bottom: 1px solid #ccc;
+      }
+
+      /*------------ End Grid Items ------------*/
+
+/* _____________________________________
+
+   03. Site Header
+   _____________________________________ */
+
+   header {
+      top: 0em;
+      background-color: #fff;
+   }
+      
+      .logo {
+         grid-column: 1 / span 1;
+      }
+
+      .logo img {
+         margin: 0px 0px 0px 60px;
+         padding: 1em;
+         width: 80%;
+      }
+
+      /*------------ Start Nav Styling ------------*/
+
+      .nav {
+         grid-column: 2 / span 2;
+         padding-top: 2em;
+         margin: 0;
+      }
+
+      nav ul {
+         margin: 0 60px 0 0 ;
+         padding: 0;
+         text-decoration: none;
+         text-align: end;
+      }
+
+      nav li {
+         display: inline;
+         margin-right: 6em;
+      }
+
+      nav li:last-child {
+         margin-right: 0em;
+      }
+
+      nav li a {
+         color: #c95312;
+         font-size: 1.1em;
+         font-weight: 700;
+         text-decoration: none;
+      }
+
+      nav li a:hover {
+         color: gray;
+      }
+
+      nav li a.active {
+         padding-bottom: 0em;
+         border-bottom: 0px solid #9a2018;
+         color: gray;
+      }
+
+      nav li h3 {
+         display: inline;
+         padding: 1.5em 1.5em 1.4em;
+         background-color: #9a2018;
+         color: #fff;
+         font-size: 1em;
+         -webkit-transition: background-color 100ms linear;
+         -ms-transition: background-color 100ms linear;
+         transition: background-color 100ms linear;
+      }
+
+      nav li h3:hover {
+         background-color: #626262;
+      }
+
+      .float-con {
+         position: relative;
+         width: 40px;
+         height: 20px;
+         margin: 30px;
+       }
+
+       .right {
+         float: right;
+       }
+
+      /*------------- End Site Header ------------*/
+
+/* _____________________________________
+
+   04. Hero
+   _____________________________________ */
+
+      .hero {
+         margin: 0 0;
+      }
+
+      .hero-img img {
+         width: 100%;
+      }
+
+      .hero-img {
+         display: grid;
+         grid-column: span 4;
+         margin-bottom: 0rem;
+      }
+
+      .hero-img > * {
+         grid-column: 1;
+         grid-row: 1;
+      }
+
+      /*------------ Title Styles ------------*/
+
+      .hero-img h2 {
+         background: none;
+         padding-bottom: 4em;
+         font-size: 3em;
+         font-weight: 700;
+         color: white;
+      }
+
+      .hero-img h3 {
+         background: none;
+         padding-bottom: 3em;
+         font-size: 3em;
+         font-weight: 300;
+         color: white;
+      }
+
+      .hero-img p {
+         background: none;
+         padding-bottom: 3.7em;
+         font-size: 1.5em;
+         color: white;
+      }
+
+      .hero-img h2.center, .hero-img h3.center, .hero-img p.center {
+         align-self: flex-end;
+         justify-self: center;
+         grid-template-columns: 1fr repeat(2, minmax(auto, 20em)) 1fr;
+      }
+
+      .hero-img h2.left, .hero-img h3.left {
+         align-self: flex-end;
+         justify-self: start;
+         margin-left: 3.4em;
+      }
+
+      .hero-img p.left {
+         align-self: flex-end;
+         justify-self: start;
+         margin-left: 7em;
+      }
+
+      .hero-img h2.right, .hero-img h3.right, .hero-img p.right {
+         align-self: flex-end;
+         justify-self: end;
+         margin-right: 14em;
+      }
+
+      .contact-item {
+         padding: 2em;
+      }
+
+      .justify_text {
+         text-align: justify;
+      }
+
+      /*------------ End Hero ------------*/
+
+
+/* _____________________________________
+
+   05. Parks
+   _____________________________________ */
+
+
+   .parks-us-img img {
+      width: 100%;
+   }
+
+   .parks-us-img {
+      display: grid;
+      grid-column: span 1;
+   }
+
+   .parks-us-img > * {
+      grid-column: 1;
+      grid-row: 1;
+   }
+
+   .parks-us-img h2 {
+      padding: 0em;
+      margin: 2em 0 0 20px;
+      color: white;
+   }
+
+   .parks-us-img-page1 h2 {
+      padding: 0em;
+      margin: 0em 0 0 0px;
+      color:#626262;
+      line-height: 50px;
+   }
+
+   .parks-us-img-page1 p {
+      padding: 0em;
+      margin: 0em 0 0 0px;
+      color:#626262;
+      line-height: 35px;
+   }
+
+   .parks-us-img h3 {
+      padding: 0em;
+      margin: 0 0 0 20px;
+      color: white;
+      line-height: 43px;
+   }
+
+   .parks-us-img p {
+      font-size: 1.5em;
+      padding: 0em .85em;
+      color: white;
+   }
+
+   .parks-us-img a {
+      color: inherit;
+      text-decoration: none;
+   }
+
+   .parks-us-img a:hover {
+      text-decoration: underline;
+   }
+
+   .parks-hero-img > * {
+      grid-column: 1;
+      grid-row: 1;
+   }
+
+   .parks-hero-img {
+      display: grid;
+      grid-column: span 4;
+   }
+
+   .parks-hero-img h2 {
+      padding: 1em;
+      margin: 0em 0 0 0px;
+      color: white;
+   }
+
+   .parks-hero-img h3 {
+      padding: 1em;
+      margin: 0em 0 0 0px;
+      color: white;
+      line-height: 43px;
+   }
+
+   .parks-hero-img p {
+      font-size: 1.5em;
+      padding: 0em oem;
+      color: white;
+   }
+      
+/* _____________________________________
+
+   06. FAQ
+   _____________________________________ */
+      
+   .faq {
+      background-color: #f4f4f4;
+      padding: 4em 0em 6em 0em;
+   }
+
+   .faq-items {
+      color: inherit;
+      margin-bottom: 1em;
+   }
+
+   .faq-items h3 {
+      background-color: #e8e7e7;
+      padding: 1em;
+      font-size: 1em;
+      font-weight: 300;
+   }
+
+
+     /*------------ Form Elements ------------*/
+
+   .contact-form {
+      margin-top: 2em;
+      padding: 1em 0 0 1em;
+      background-color: #ccc;
+   }
+
+     input, textarea {
+      padding: .75em;
+      border: 1px solid #ccc;
+      background-color: #f7f7f7;
+      border-radius: 5px;
+      margin-bottom: 1em;
+      width: 448px;
+   }
+
+   input[type="submit"] {
+      margin: 0 3em 1em 0;
+      width: inherit;
+      padding: 1em 2em;
+      background-color: #c95312;
+      color: #fff;
+      border: none;
+      float: right;
+   }
+
+   /*------------ End Form Elements ------------*/
+
+/* _____________________________________
+
+   07. Footer
+   _____________________________________ */
+      
+   .footer {
+      background-color: #c95312;
+   }
+
+   .footer a {
+      color: #fff;
+   }
+
+
+
+   }
